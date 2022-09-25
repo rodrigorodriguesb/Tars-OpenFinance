@@ -13,11 +13,10 @@ def predict():
     if data:
         if isinstance( data, dict):
             data_row = pd.DataFrame(data, index=[0])
-            print("if")
         else:
-            print("else")
             data_row = pd.DataFrame( data, columns=data[0].keys())
-    # norm = MinMa.transform(X=data_row)
+
+    # norm = MinMa.transform(X=data_row) // Está seria a linha de código que faria toda a normalização dos dados , mas por algum problema nos minutos finais não conseguimos executa-lá
     pred = modelo.predict(data_row)
     data_row['outlier'] = pred
 
